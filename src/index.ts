@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from 'express';
 import errorMiddleware from './middleware/errors';
 import config from './config';
-import db from './database';
+import routes from './routes';
 
 const PORT = config.port || 8080;
 
@@ -9,24 +9,13 @@ const app: Application = express();
 
 app.use(express.json());
 
+app.use('/api', routes);
+
 app.get('/', (req: Request, res: Response) => {
   res.json({
     message: 'Hello world',
   });
 });
-
-// db.connect().then(async (client) => {
-//   return await client
-//     .query('SELECT NOW()')
-//     .then((res) => {
-//       client.release();
-//       console.log(res.rows);
-//     })
-//     .catch((err) => {
-//       client.release();
-//       console.log(err.stack);
-//     });
-// });
 
 app.use(errorMiddleware);
 

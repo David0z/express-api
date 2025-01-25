@@ -17,6 +17,7 @@ services:
     depends_on:
       - postgresdb
     build: ./
+    entrypoint: ['sh', '-c', 'npm run migration:run && npm run dev']
     restart: unless-stopped
     env_file: ./.env
     ports:

@@ -8,4 +8,4 @@ EXPOSE 8080
 # CMD ["npm", "start"]
 
 # dev-only
-CMD ["npm", "run", "dev"]
+# CMD ["npm", "run", "dev"]
