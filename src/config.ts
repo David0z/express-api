@@ -1,0 +1,23 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const {
+  NODE_ENV,
+  NODE_LOCAL_PORT,
+  POSTGRESDB_HOST,
+  POSTGRESDB_DATABASE,
+  POSTGRESDB_DATABASE_TEST,
+  POSTGRESDB_USER,
+  POSTGRESDB_PASSWORD,
+  POSTGRESDB_LOCAL_PORT,
+} = process.env;
+
+export default {
+  port: NODE_LOCAL_PORT,
+  host: POSTGRESDB_HOST,
+  dbPort: POSTGRESDB_LOCAL_PORT,
+  database: NODE_ENV === 'dev' ? POSTGRESDB_DATABASE : POSTGRESDB_DATABASE_TEST,
+  user: POSTGRESDB_USER,
+  password: POSTGRESDB_PASSWORD,
+};
