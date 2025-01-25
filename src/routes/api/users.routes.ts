@@ -1,8 +1,8 @@
 import { Request, Response, Router } from 'express';
-import { getUsers } from '../../controllers/users';
+import * as controllers from '../../controllers/users';
 
 const routes = Router();
 
-routes.get('/', getUsers);
+routes.get('/', controllers.collection);
 
 export default routes;
