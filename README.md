@@ -50,6 +50,8 @@ You'll receive an answer object like this:
 }
 ```
 
+![App Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://raw.githubusercontent.com/David0z/mysterious-express-api/refs/heads/main/screenshots/1.png))
+
 Copy the token value as it will be required in requests to user endpoints.
 
 Now you can try to create a new user with POST request to the route:
@@ -69,11 +71,15 @@ With this payload:
 }
 ```
 
+![App Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://raw.githubusercontent.com/David0z/mysterious-express-api/refs/heads/main/screenshots/3.png))
+
 And with Bearer token in the "Authorization" header:
 
 ```
 Bearer eyJhbGciOiJIUzI1N...
 ```
+
+![App Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://raw.githubusercontent.com/David0z/mysterious-express-api/refs/heads/main/screenshots/2.png))
 
 ### Tests
 
@@ -249,7 +255,3 @@ Success response code: **200**
 | `id`      | `string` | **Required**. Id of user to delete |
 
 Success response code: **200**
-
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
