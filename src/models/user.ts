@@ -107,7 +107,6 @@ class UserModel {
 
       const connection = await db.connect();
       const query = `UPDATE users SET ("${keys.join(`", "`)}") = (${bindValuesArr.join(', ')}) WHERE id = $${i} RETURNING *`;
-      console.log(query, values);
 
       const result = await connection.query(query, [...values, userId]);
       connection.release();
