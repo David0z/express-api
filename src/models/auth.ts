@@ -1,6 +1,5 @@
 import Auth from '../types/auth';
 import db from '../database';
-import CustomError from './error';
 
 class AuthModel {
   async getAuthUser(email: string): Promise<Auth> {
