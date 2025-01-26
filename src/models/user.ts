@@ -22,7 +22,7 @@ class UserModel {
     try {
       this.validateUserRole(user.role);
       const connection = await db.connect();
-      const query = `INSERT INTO users (firstName, lastName, email, role) VALUES ($1, $2, $3, $4) RETURNING *`;
+      const query = `INSERT INTO users ("firstName", "lastName", email, role) VALUES ($1, $2, $3, $4) RETURNING *`;
       const result = await connection.query(query, [
         user.firstName,
         user.lastName,
@@ -94,7 +94,7 @@ class UserModel {
       }
 
       const connection = await db.connect();
-      const query = `UPDATE users SET (firstName, lastName, role) = ($1, $2, $3) WHERE id = $4 RETURNING *`;
+      const query = `UPDATE users SET ("firstName", "lastName", role) = ($1, $2, $3) WHERE id = $4 RETURNING *`;
       const result = await connection.query(query, [
         user.firstName,
         user.lastName,
