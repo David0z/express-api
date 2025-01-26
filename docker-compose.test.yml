@@ -13,29 +13,24 @@ services:
       - $POSTGRESDB_LOCAL_PORT:$POSTGRESDB_DOCKER_PORT
     volumes:
       - db:/var/lib/postgres
-  # app:
-  #   depends_on:
-  #     - postgresdb-test
-  #   build: ./
-  #   entrypoint: ['sh', '-c', 'npm run migration:run && npm start & npm run test']
-  #   restart: unless-stopped
-  #   env_file: ./.env
-  #   ports:
-  #     - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
-  #   environment:
-  #     - DB_HOST=$POSTGRESDB_HOST
-  #     - DB_USER=$POSTGRESDB_USER
-  #     - DB_PASSWORD=$POSTGRESDB_PASSWORD
-  #     - DB_NAME=$POSTGRESDB_DATABASE_TEST
-  #     - DB_PORT=$POSTGRESDB_DOCKER_PORT
-  #     # dev-only
-  #     - CHOKIDAR_USEPOLLING=true
-  #   stdin_open: true
-  #   tty: true
-  #   # dev-only
-  #   volumes:
-  #     - ./src:/app/src
-  #     - /app/node_modules
+  app:
+    depends_on:
+      - postgresdb-test
+    build: ./
+    entrypoint:
+      ['sh', '-c', 'npm run migration:run && npm start & npm run test']
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    environment:
+      - DB_HOST=$POSTGRESDB_HOST
+      - DB_USER=$POSTGRESDB_USER
+      - DB_PASSWORD=$POSTGRESDB_PASSWORD
+      - DB_NAME=$POSTGRESDB_DATABASE_TEST
+      - DB_PORT=$POSTGRESDB_DOCKER_PORT
+    stdin_open: true
+    tty: true
 
 volumes:
   db:

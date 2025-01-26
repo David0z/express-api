@@ -29,13 +29,13 @@ services:
       - DB_NAME=$POSTGRESDB_DATABASE
       - DB_PORT=$POSTGRESDB_DOCKER_PORT
       # dev-only
-      - CHOKIDAR_USEPOLLING=true
+      # - CHOKIDAR_USEPOLLING=true
     stdin_open: true
     tty: true
     # dev-only
-    volumes:
-      - ./src:/app/src
-      - /app/node_modules
+    # volumes:
+    #   - ./src:/app/src
+    #   - /app/node_modules
 
 volumes:
   db:
