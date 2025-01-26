@@ -10,7 +10,7 @@
   },
   "test": {
     "driver": "pg",
-    "host": { "ENV": "POSTGRESDB_HOST" },
+    "host": { "ENV": "POSTGRESDB_HOST_TEST" },
     "port": { "ENV": "POSTGRESDB_LOCAL_PORT" },
     "database": { "ENV": "POSTGRESDB_DATABASE_TEST" },
     "user": { "ENV": "POSTGRESDB_USER" },

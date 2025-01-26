@@ -28,3 +28,5 @@ app.use((_: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`server is starting at port: ${PORT}`);
 });
+
+export default app;
