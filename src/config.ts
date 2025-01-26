@@ -11,6 +11,7 @@ const {
   POSTGRESDB_USER,
   POSTGRESDB_PASSWORD,
   POSTGRESDB_LOCAL_PORT,
+  JWT_SECRET,
 } = process.env;
 
 export default {
@@ -20,4 +21,5 @@ export default {
   database: NODE_ENV === 'dev' ? POSTGRESDB_DATABASE : POSTGRESDB_DATABASE_TEST,
   user: POSTGRESDB_USER,
   password: POSTGRESDB_PASSWORD,
+  jwtSecret: JWT_SECRET,
 };

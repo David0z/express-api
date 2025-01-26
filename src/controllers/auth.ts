@@ -2,9 +2,9 @@ import { NextFunction, Request, Response } from 'express';
 import AuthModel from '../models/auth';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
+import config from '../config';
 
-const secretKey = process.env.JWT_SECRET || 'your_secret_key';
-
+const secretKey = config.jwtSecret as string;
 const authModel = new AuthModel();
 
 export async function login(req: Request, res: Response, next: NextFunction) {
