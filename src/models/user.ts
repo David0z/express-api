@@ -93,14 +93,23 @@ class UserModel {
         return Promise.resolve(user as Partial<User>);
       }
 
+      const keys = [];
+      const values = [];
+      const bindValuesArr: string[] = [];
+      let i = 1;
+
+      for (let [key, value] of Object.entries(user)) {
+        keys.push(key);
+        values.push(value);
+        bindValuesArr.push(`$${i}`);
+        i++;
+      }
+
       const connection = await db.connect();
-      const query = `UPDATE users SET ("firstName", "lastName", role) = ($1, $2, $3) WHERE id = $4 RETURNING *`;
-      const result = await connection.query(query, [
-        user.firstName,
-        user.lastName,
-        user.role,
-        userId,
-      ]);
+      const query = `UPDATE users SET ("${keys.join(`", "`)}") = (${bindValuesArr.join(', ')}) WHERE id = $${i} RETURNING *`;
+      console.log(query, values);
+
+      const result = await connection.query(query, [...values, userId]);
       connection.release();
       return result.rows[0];
     } catch (error) {
@@ -116,7 +125,7 @@ class UserModel {
     try {
       this.validateUserId(userId);
       const connection = await db.connect();
-      const query = `DELETE FROM users WHERE id = $1;`;
+      const query = `DELETE FROM users WHERE id = $1 RETURNING *;`;
       const result = await connection.query(query, [userId]);
       connection.release();
       return result.rows[0];
