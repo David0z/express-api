@@ -50,7 +50,7 @@ You'll receive an answer object like this:
 }
 ```
 
-![App Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://raw.githubusercontent.com/David0z/mysterious-express-api/refs/heads/main/screenshots/1.png))
+![App Screenshot](https://raw.githubusercontent.com/David0z/mysterious-express-api/refs/heads/main/screenshots/1.png)
 
 Copy the token value as it will be required in requests to user endpoints.
 
@@ -71,7 +71,7 @@ With this payload:
 }
 ```
 
-![App Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://raw.githubusercontent.com/David0z/mysterious-express-api/refs/heads/main/screenshots/3.png))
+![App Screenshot](https://raw.githubusercontent.com/David0z/mysterious-express-api/refs/heads/main/screenshots/3.png)
 
 And with Bearer token in the "Authorization" header:
 
@@ -79,7 +79,7 @@ And with Bearer token in the "Authorization" header:
 Bearer eyJhbGciOiJIUzI1N...
 ```
 
-![App Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://raw.githubusercontent.com/David0z/mysterious-express-api/refs/heads/main/screenshots/2.png))
+![App Screenshot](https://raw.githubusercontent.com/David0z/mysterious-express-api/refs/heads/main/screenshots/2.png)
 
 ### Tests
 
