@@ -17,7 +17,7 @@ services:
   #   depends_on:
   #     - postgresdb-test
   #   build: ./
-  #   entrypoint: ['sh', '-c', 'npm run migration:run && npm start && npm run test']
+  #   entrypoint: ['sh', '-c', 'npm run migration:run && npm start & npm run test']
   #   restart: unless-stopped
   #   env_file: ./.env
   #   ports:
@@ -26,7 +26,7 @@ services:
   #     - DB_HOST=$POSTGRESDB_HOST
   #     - DB_USER=$POSTGRESDB_USER
   #     - DB_PASSWORD=$POSTGRESDB_PASSWORD
-  #     - DB_NAME=$POSTGRESDB_DATABASE
+  #     - DB_NAME=$POSTGRESDB_DATABASE_TEST
   #     - DB_PORT=$POSTGRESDB_DOCKER_PORT
   #     # dev-only
   #     - CHOKIDAR_USEPOLLING=true

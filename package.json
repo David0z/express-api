@@ -11,8 +11,8 @@
     "format": "prettier --write src/**/*.ts",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
-    "test": "set NODE_ENV=test&& db-migrate up --env test && jest && db-migrate reset",
-    "test:mac": "export NODE_ENV=test&& db-migrate up --env test && jest && db-migrate reset"
+    "test": "set NODE_ENV=test&& db-migrate up --env test && jest --runInBand && db-migrate reset",
+    "test:mac": "export NODE_ENV=test&& db-migrate up --env test && jest --runInBand && db-migrate reset"
   },
   "keywords": [],
   "author": "",

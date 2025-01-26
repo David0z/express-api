@@ -99,6 +99,9 @@ class UserModel {
       let i = 1;
 
       for (let [key, value] of Object.entries(user)) {
+        if (!['firstName', 'lastName', 'role'].includes(key)) {
+          throw new CustomError(400, 'Not allowed update param');
+        }
         keys.push(key);
         values.push(value);
         bindValuesArr.push(`$${i}`);
@@ -106,7 +109,7 @@ class UserModel {
       }
 
       const connection = await db.connect();
-      const query = `UPDATE users SET ("${keys.join(`", "`)}") = (${bindValuesArr.join(', ')}) WHERE id = $${i} RETURNING *`;
+      const query = `UPDATE users SET ("${keys.join(`", "`)}") = ROW(${bindValuesArr.join(', ')}) WHERE id = $${i} RETURNING *`;
 
       const result = await connection.query(query, [...values, userId]);
       connection.release();
