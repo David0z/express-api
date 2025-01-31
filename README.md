@@ -1,6 +1,6 @@
-# Mysterious Express Api
+# Express Api
 
-A mysterious project written by mysterious candidate for mysterious company with headquarters in Silesian Voivodeship
+Express, PostgreSQL, Typescript, JWT example Rest API
 
 ## Installation
 
